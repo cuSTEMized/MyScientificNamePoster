@@ -1,0 +1,163 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title> My Scientific Name Poster</title>
+        <meta name="keywords" content="personalized, storybooks, science, STEM, free books, for girls, read online"/>
+        <meta name="author" content="Jean Fan"/>
+        <meta name="description" content="CuSTEMized is a not-for-profit initiative that encourages kids to envision themselves in Science, Technology, Engineering, and Math (STEM) by providing personalized STEM-related motivational books and goodies. Make a free, personalized ebook copy of our storybooks for your kids today!">
+
+        <!-- AddThis -->
+        <meta property="og:title" content="CuSTEMized" />
+        <meta property="og:description" content="CuSTEMized is a not-for-profit initiative that encourages kids to envision themselves in Science, Technology, Engineering, and Math (STEM) by providing personalized STEM-related motivational books and goodies. Make a free, personalized ebook copy of our storybooks for your kids today!"/>
+        <meta property="og:image" content="img/banner/banner.jpg" />
+        
+        <link href="https://custemized.org/css/font-awesome.css" rel="stylesheet">
+        <link href="https://custemized.org/css/jquery.fullPage.css" rel="stylesheet">
+        <link href="https://custemized.org/css/app.css" rel="stylesheet">
+
+        <link href="https://fonts.googleapis.com/css?family=Patrick+Hand" rel="stylesheet">
+
+        <!--
+             <link href="https://custemized.org/css/component.css" rel="stylesheet">
+           -->
+
+        <script src="https://custemized.org/js/jquery.min.js"></script>
+        <script src="https://custemized.org/js/bootstrap.min.js"></script>
+        <script src="https://custemized.org/js/jquery.fullPage.min.js"></script>
+        <link rel="shortcut icon" href="https://custemized.org/img/favicon.ico ">
+
+    </head>
+    
+    <body class="bg-paper" onload="makePoster()">
+	<header class="navbar navbar-custom" role="navigation">
+            <div class="container">
+		<div class="navbar-header">
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse" style="color:#666">
+			<i class="fa fa-bars"></i>
+		    </button>
+		    <div id="logo"> <a class="navbar-brand" href="https://custemized.org">
+			<img src=https://custemized.org/img/logo.svg alt="CuSTEMized"/>
+		    </a> </div>
+		</div>
+		<div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+		    <ul class="nav navbar-nav">
+			<li class="">
+			    <a href="https://custemized.org">
+				Visit CuSTEMized.org For More Resources
+			    </a>
+			</li>
+		    </ul>
+		</div>
+            </div>
+	</header>  
+
+        <div class="container" style="padding: 60px 30px">
+	    <div class="row">
+		<div class="col-lg-12 col-md-12 col-sm-12">
+		    <div class="input-group input-group-lg">
+			<label for="name" class="input-group-addon">Name</label>
+			<input placeholder="Your Name" class="form-control" name="name" type="text" id="name" value="Name">
+		    </div>
+		</div>
+	    </div>
+	    <br>
+	    <div class="row"><div class="col-md-12">
+		<button class="btn btn-lg bg-secondary btn-block" onclick="makePoster()">Make My Poster</button>
+	    </div></div>
+	</div>
+	<canvas id="img"></canvas>
+        <div class="container" style="padding: 60px 30px">
+	    <div class="row text-center">
+		<button class="btn btn-lg bg-primary" onclick="downloadCanvas(this, 'img', 'CuSTEMized_MyScientificName_poster.png')">Download</button>
+	    </div>
+	</div>
+    </body>
+
+
+    <script type="text/javascript">
+     function downloadCanvas(link, canvasId, filename) {
+	 link.href = document.getElementById(canvasId).toDataURL();
+	 link.download = filename;
+     }
+     
+     function makePoster() {
+	 var dictionary = {}
+	 dictionary["A"] = 'img/A-01.jpg'
+	 dictionary["B"] = 'img/B-01.jpg'
+	 dictionary["C"] = 'img/C-01.jpg'
+	 dictionary["D"] = 'img/D-01.jpg'
+	 dictionary["E"] = 'img/E-01.jpg'
+	 dictionary["F"] = 'img/F-01.jpg'
+	 dictionary["G"] = 'img/G-01.jpg'
+	 dictionary["H"] = 'img/H-01.jpg'
+	 dictionary["I"] = 'img/I-01.jpg'
+	 dictionary["J"] = 'img/J-01.jpg'
+	 dictionary["K"] = 'img/K-01.jpg'
+	 dictionary["L"] = 'img/L-01.jpg'
+	 dictionary["M"] = 'img/M-01.jpg'
+	 dictionary["N"] = 'img/N-01.jpg'
+	 dictionary["O"] = 'img/O-01.jpg'
+	 dictionary["P"] = 'img/P-01.jpg'
+	 dictionary["Q"] = 'img/Q-01.jpg'
+	 dictionary["R"] = 'img/R-01.jpg'
+	 dictionary["S"] = 'img/S-01.jpg'
+	 dictionary["T"] = 'img/T-01.jpg'
+	 dictionary["U"] = 'img/U-01.jpg'
+	 dictionary["V"] = 'img/V-01.jpg'
+	 dictionary["W"] = 'img/W-01.jpg'
+	 dictionary["X"] = 'img/X-01.jpg'
+	 dictionary["Y"] = 'img/Y-01.jpg'
+	 dictionary["Z"] = 'img/Z-01.jpg'
+
+	 var str = document.getElementById("name").value
+	 var res = str.toUpperCase().split("")
+	 document.getElementById("img").innerHTML = ""
+
+	 function loadImages(sources, callback) {
+	     var images = {}
+	     var loadedImages = 0
+	     var numImages = 0
+	     // get num of sources
+	     for(var src in sources) {
+		 numImages++
+	     }
+	     for(var i = 0; i < sources.length; i++) { 
+		 images[i] = new Image()
+		 images[i].onload = function() {
+		     if(++loadedImages >= numImages) {
+			 callback(images)
+		     }
+		 }
+		 images[i].src = sources[i]
+	     }
+	 }
+	 
+	 var canvas = document.getElementById('img')
+	 var context = canvas.getContext('2d')
+	 canvas.width  = window.innerWidth
+	 var imgWidth = canvas.width/res.length
+	 var imgHeight = imgWidth * 792/289
+	 canvas.height = imgHeight
+	 context.clearRect(0, 0, canvas.width, canvas.height)
+	 
+	 var sources = []
+	 for(var i = 0; i < res.length; i++) {
+	     console.log(res[i])	 
+	     sources[sources.length] = dictionary[res[i]]
+	 }
+	 console.log(sources)
+	 
+	 loadImages(sources, function(images) {
+	     for(var i = 0; i < res.length; i++) {
+		 context.drawImage(images[i], i*imgWidth, 0, imgWidth, imgHeight)
+	     }
+	 })
+     }
+    </script>
+    <!-- addthis -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-539db4982115a4fe"></script>
+</html>

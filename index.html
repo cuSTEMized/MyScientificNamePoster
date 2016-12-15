@@ -32,7 +32,7 @@
 
     </head>
     
-    <body class="bg-paper" onload="makePoster()">
+    <body class="bg-paper" onload="makePoster()" onresize="makePoster()">
 	<header class="navbar navbar-custom" role="navigation">
             <div class="container">
 		<div class="navbar-header">
@@ -86,32 +86,32 @@
      
      function makePoster() {
 	 var dictionary = {}
-	 dictionary["A"] = 'img/A-01.jpg'
-	 dictionary["B"] = 'img/B-01.jpg'
-	 dictionary["C"] = 'img/C-01.jpg'
-	 dictionary["D"] = 'img/D-01.jpg'
-	 dictionary["E"] = 'img/E-01.jpg'
-	 dictionary["F"] = 'img/F-01.jpg'
-	 dictionary["G"] = 'img/G-01.jpg'
-	 dictionary["H"] = 'img/H-01.jpg'
-	 dictionary["I"] = 'img/I-01.jpg'
-	 dictionary["J"] = 'img/J-01.jpg'
-	 dictionary["K"] = 'img/K-01.jpg'
-	 dictionary["L"] = 'img/L-01.jpg'
-	 dictionary["M"] = 'img/M-01.jpg'
-	 dictionary["N"] = 'img/N-01.jpg'
-	 dictionary["O"] = 'img/O-01.jpg'
-	 dictionary["P"] = 'img/P-01.jpg'
-	 dictionary["Q"] = 'img/Q-01.jpg'
-	 dictionary["R"] = 'img/R-01.jpg'
-	 dictionary["S"] = 'img/S-01.jpg'
-	 dictionary["T"] = 'img/T-01.jpg'
-	 dictionary["U"] = 'img/U-01.jpg'
-	 dictionary["V"] = 'img/V-01.jpg'
-	 dictionary["W"] = 'img/W-01.jpg'
-	 dictionary["X"] = 'img/X-01.jpg'
-	 dictionary["Y"] = 'img/Y-01.jpg'
-	 dictionary["Z"] = 'img/Z-01.jpg'
+	 dictionary["A"] = 'img-opt/A-01_optimized.jpg'
+	 dictionary["B"] = 'img-opt/B-01_optimized.jpg'
+	 dictionary["C"] = 'img-opt/C-01_optimized.jpg'
+	 dictionary["D"] = 'img-opt/D-01_optimized.jpg'
+	 dictionary["E"] = 'img-opt/E-01_optimized.jpg'
+	 dictionary["F"] = 'img-opt/F-01_optimized.jpg'
+	 dictionary["G"] = 'img-opt/G-01_optimized.jpg'
+	 dictionary["H"] = 'img-opt/H-01_optimized.jpg'
+	 dictionary["I"] = 'img-opt/I-01_optimized.jpg'
+	 dictionary["J"] = 'img-opt/J-01_optimized.jpg'
+	 dictionary["K"] = 'img-opt/K-01_optimized.jpg'
+	 dictionary["L"] = 'img-opt/L-01_optimized.jpg'
+	 dictionary["M"] = 'img-opt/M-01_optimized.jpg'
+	 dictionary["N"] = 'img-opt/N-01_optimized.jpg'
+	 dictionary["O"] = 'img-opt/O-01_optimized.jpg'
+	 dictionary["P"] = 'img-opt/P-01_optimized.jpg'
+	 dictionary["Q"] = 'img-opt/Q-01_optimized.jpg'
+	 dictionary["R"] = 'img-opt/R-01_optimized.jpg'
+	 dictionary["S"] = 'img-opt/S-01_optimized.jpg'
+	 dictionary["T"] = 'img-opt/T-01_optimized.jpg'
+	 dictionary["U"] = 'img-opt/U-01_optimized.jpg'
+	 dictionary["V"] = 'img-opt/V-01_optimized.jpg'
+	 dictionary["W"] = 'img-opt/W-01_optimized.jpg'
+	 dictionary["X"] = 'img-opt/X-01_optimized.jpg'
+	 dictionary["Y"] = 'img-opt/Y-01_optimized.jpg'
+	 dictionary["Z"] = 'img-opt/Z-01_optimized.jpg'
 
 	 var str = document.getElementById("name").value
 	 var res = str.toUpperCase().split("")
@@ -146,10 +146,10 @@
 	 
 	 var sources = []
 	 for(var i = 0; i < res.length; i++) {
-	     console.log(res[i])	 
+	     //console.log(res[i])	 
 	     sources[sources.length] = dictionary[res[i]]
 	 }
-	 console.log(sources)
+	 //console.log(sources)
 	 
 	 loadImages(sources, function(images) {
 	     for(var i = 0; i < res.length; i++) {
@@ -158,6 +158,4 @@
 	 })
      }
     </script>
-    <!-- addthis -->
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-539db4982115a4fe"></script>
 </html>

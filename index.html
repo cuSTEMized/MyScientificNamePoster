@@ -72,7 +72,7 @@
 	<canvas id="img"></canvas>
         <div class="container" style="padding: 60px 30px">
 	    <div class="row text-center">
-		<button class="btn btn-lg bg-primary" onclick="downloadCanvas(this, 'img', 'CuSTEMized_MyScientificName_poster.png')">Download</button>
+		<a id="download"><button class="btn btn-lg bg-primary btn-block">Download</button></a>
 	    </div>
 	</div>
     </body>
@@ -83,6 +83,11 @@
 	 link.href = document.getElementById(canvasId).toDataURL();
 	 link.download = filename;
      }
+     document.getElementById('download').addEventListener('click', function() {
+	 downloadCanvas(this, 'img', 'CuSTEMized_MyScientificNamePoster.png');
+	 console.log("boo");
+     }, false);
+     
      
      function makePoster() {
 	 var dictionary = {}

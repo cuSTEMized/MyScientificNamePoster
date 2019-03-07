@@ -14,7 +14,7 @@
         <meta property="og:title" content="CuSTEMized" />
         <meta property="og:description" content="CuSTEMized is a not-for-profit initiative that encourages kids to envision themselves in Science, Technology, Engineering, and Math (STEM) by providing personalized STEM-related motivational books and goodies. Make a free, personalized ebook copy of our storybooks for your kids today!"/>
         <meta property="og:image" content="img/banner/banner.jpg" />
-        
+
         <link href="https://custemized.org/css/font-awesome.css" rel="stylesheet">
         <link href="https://custemized.org/css/jquery.fullPage.css" rel="stylesheet">
         <link href="https://custemized.org/css/app.css" rel="stylesheet">
@@ -31,7 +31,7 @@
         <link rel="shortcut icon" href="https://custemized.org/img/favicon.ico ">
 
     </head>
-    
+
     <body class="bg-paper" onload="makePoster()" onresize="makePoster()">
 	<header class="navbar navbar-custom" role="navigation">
             <div class="container">
@@ -53,7 +53,7 @@
 		    </ul>
 		</div>
             </div>
-	</header>  
+	</header>
 
         <div class="container" style="padding: 60px 30px">
 	    <div class="row">
@@ -79,88 +79,73 @@
 
 
     <script type="text/javascript">
-     function downloadCanvas(link, canvasId, filename) {
-	 link.href = document.getElementById(canvasId).toDataURL();
-	 link.download = filename;
-     }
-     document.getElementById('download').addEventListener('click', function() {
-	 downloadCanvas(this, 'img', 'CuSTEMized_MyScientificNamePoster.png');
-	 console.log("boo");
-     }, false);
-     
-     
-     function makePoster() {
-	 var dictionary = {}
-	 dictionary["A"] = 'img-opt/A-01_optimized.jpg'
-	 dictionary["B"] = 'img-opt/B-01_optimized.jpg'
-	 dictionary["C"] = 'img-opt/C-01_optimized.jpg'
-	 dictionary["D"] = 'img-opt/D-01_optimized.jpg'
-	 dictionary["E"] = 'img-opt/E-01_optimized.jpg'
-	 dictionary["F"] = 'img-opt/F-01_optimized.jpg'
-	 dictionary["G"] = 'img-opt/G-01_optimized.jpg'
-	 dictionary["H"] = 'img-opt/H-01_optimized.jpg'
-	 dictionary["I"] = 'img-opt/I-01_optimized.jpg'
-	 dictionary["J"] = 'img-opt/J-01_optimized.jpg'
-	 dictionary["K"] = 'img-opt/K-01_optimized.jpg'
-	 dictionary["L"] = 'img-opt/L-01_optimized.jpg'
-	 dictionary["M"] = 'img-opt/M-01_optimized.jpg'
-	 dictionary["N"] = 'img-opt/N-01_optimized.jpg'
-	 dictionary["O"] = 'img-opt/O-01_optimized.jpg'
-	 dictionary["P"] = 'img-opt/P-01_optimized.jpg'
-	 dictionary["Q"] = 'img-opt/Q-01_optimized.jpg'
-	 dictionary["R"] = 'img-opt/R-01_optimized.jpg'
-	 dictionary["S"] = 'img-opt/S-01_optimized.jpg'
-	 dictionary["T"] = 'img-opt/T-01_optimized.jpg'
-	 dictionary["U"] = 'img-opt/U-01_optimized.jpg'
-	 dictionary["V"] = 'img-opt/V-01_optimized.jpg'
-	 dictionary["W"] = 'img-opt/W-01_optimized.jpg'
-	 dictionary["X"] = 'img-opt/X-01_optimized.jpg'
-	 dictionary["Y"] = 'img-opt/Y-01_optimized.jpg'
-	 dictionary["Z"] = 'img-opt/Z-01_optimized.jpg'
 
-	 var str = document.getElementById("name").value
-	 var res = str.toUpperCase().split("")
-	 document.getElementById("img").innerHTML = ""
 
-	 function loadImages(sources, callback) {
-	     var images = {}
-	     var loadedImages = 0
-	     var numImages = 0
-	     // get num of sources
-	     for(var src in sources) {
-		 numImages++
-	     }
-	     for(var i = 0; i < sources.length; i++) { 
-		 images[i] = new Image()
-		 images[i].onload = function() {
-		     if(++loadedImages >= numImages) {
-			 callback(images)
-		     }
-		 }
-		 images[i].src = sources[i]
-	     }
-	 }
-	 
-	 var canvas = document.getElementById('img')
-	 var context = canvas.getContext('2d')
-	 canvas.width  = window.innerWidth
-	 var imgWidth = canvas.width/res.length
-	 var imgHeight = imgWidth * 792/289
-	 canvas.height = imgHeight
-	 context.clearRect(0, 0, canvas.width, canvas.height)
-	 
-	 var sources = []
-	 for(var i = 0; i < res.length; i++) {
-	     //console.log(res[i])	 
-	     sources[sources.length] = dictionary[res[i]]
-	 }
-	 //console.log(sources)
-	 
-	 loadImages(sources, function(images) {
-	     for(var i = 0; i < res.length; i++) {
-		 context.drawImage(images[i], i*imgWidth, 0, imgWidth, imgHeight)
-	     }
-	 })
-     }
+   function makePoster() {
+    	 var dictionary = {}
+       var ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+       for (var i = 0; i < ALPHABET.length; i++) {
+         dictionary[ALPHABET[i]] = 'img-opt/'.concat(ALPHABET[i], '-01_optimized.jpg');
+       }
+    	 var str = document.getElementById("name").value
+    	 var res = str.toUpperCase().split("")
+    	 document.getElementById("img").innerHTML = ""
+
+    	 function loadImages(sources, callback) {
+    	     var images = {}
+    	     var loadedImages = 0
+    	     var numImages = 0
+    	     // get num of sources
+    	     for(var src in sources) {
+    		 numImages++
+    	     }
+    	     for(var i = 0; i < sources.length; i++) {
+    		 images[i] = new Image()
+    		 images[i].onload = function() {
+    		     if(++loadedImages >= numImages) {
+    			 callback(images)
+    		     }
+    		 }
+    		 images[i].src = sources[i]
+    	     }
+    	 }
+
+    	 var canvas = document.getElementById('img')
+    	 var context = canvas.getContext('2d')
+    	 canvas.width  = window.innerWidth
+    	 var imgWidth = canvas.width/res.length
+    	 var imgHeight = imgWidth * 792/289
+    	 canvas.height = imgHeight
+    	 context.clearRect(0, 0, canvas.width, canvas.height)
+
+    	 var sources = []
+    	 for(var i = 0; i < res.length; i++) {
+    	     //console.log(res[i])
+    	     sources[sources.length] = dictionary[res[i]]
+    	 }
+
+    	 loadImages(sources, function(images) {
+    	     for(var i = 0; i < res.length; i++) {
+    		 context.drawImage(images[i], i*imgWidth, 0, imgWidth, imgHeight)
+    	     }
+    	   })
+      }
+      
+      function downloadCanvas(link, canvasId, filename) {
+        document.getElementById(canvasId).toBlob(function(blob) {
+          // need a dummy link to enable the download after the first click
+          // executes the function toBlob once
+          // after the toBlob function finishes, this function will run?
+          var a = document.createElement("a");
+          a.download = filename;
+          a.href = URL.createObjectURL(blob); // this creates a URL to the Blob file object
+          a.click(); // trigger the download button again
+          });
+        } // end of download canvas
+
+      document.getElementById('download').addEventListener('click', function() {
+    	downloadCanvas(this, 'img', 'CuSTEMized_MyScientificNamePoster.png');
+      }, false);
+
     </script>
 </html>
